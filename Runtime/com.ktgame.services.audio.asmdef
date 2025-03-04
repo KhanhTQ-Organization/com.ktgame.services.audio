@@ -1,0 +1,18 @@
+{
+    "name": "com.ktgame.services.audio",
+    "rootNamespace": "com.ktgame.services.audio",
+    "references": [
+        "GUID:ea2ae37156ab74bd0b7bf06641413d82",
+        "GUID:200a4385217cc3c4aa09540ee4f3110d",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

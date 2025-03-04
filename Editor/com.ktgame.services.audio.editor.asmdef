@@ -1,0 +1,16 @@
+{
+    "name": "com.ktgame.services.audio.editor",
+    "rootNamespace": "com.ktgame.services.audio.editor",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
