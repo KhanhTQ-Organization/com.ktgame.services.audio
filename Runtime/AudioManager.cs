@@ -12,9 +12,7 @@ namespace com.ktgame.services.audio
     public class AudioManager : MonoBehaviour, IAudioManager
     {
         public int Priority => 0;
-
         public bool IsInitialized { get; private set; }
-
         public IReadOnlyList<AudioPlayer> ActivePlayers => _activeAudioPlayers;
 
         public int ActiveSoundCount
