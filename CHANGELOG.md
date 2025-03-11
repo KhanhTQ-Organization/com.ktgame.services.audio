@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/KhanhTQ-hub/com.ktgame.services.audio/compare/v1.0.0...v1.0.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* changelog ([eb7cd98](https://github.com/KhanhTQ-hub/com.ktgame.services.audio/commit/eb7cd985d09c7b4ca2eca1409174c2fe2ee0331f))
+
 # 1.0.0 (2025-03-11)
 
 
