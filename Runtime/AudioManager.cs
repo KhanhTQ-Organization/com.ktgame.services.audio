@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using com.ktgame.services.audio.enums;
 using AudioType = com.ktgame.services.audio.enums.AudioType;
+using com.ktgame.core;
 
 namespace com.ktgame.services.audio
 {

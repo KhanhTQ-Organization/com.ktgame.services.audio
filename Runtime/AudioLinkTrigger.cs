@@ -6,7 +6,7 @@ namespace com.ktgame.services.audio
 {
 	public class AudioLinkTrigger : MonoBehaviour
 	{
-		private readonly List<AudioLink> _audioLinkList = new();
+		private readonly List<AudioLink> _audioLinkList = new List<AudioLink>();
 
 		private void OnEnable()
 		{
