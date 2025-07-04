@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/KhanhTQ-Organization/com.ktgame.services.audio/compare/v1.0.2...v1.0.3) (2025-07-04)
+
+
+### Bug Fixes
+
+* scope audio ([a0db7a0](https://github.com/KhanhTQ-Organization/com.ktgame.services.audio/commit/a0db7a0deef0f91103ee93df35111fc2e7629779))
+
 ## [1.0.2](https://github.com/KhanhTQ-hub/com.ktgame.services.audio/compare/v1.0.1...v1.0.2) (2025-03-12)
 
 

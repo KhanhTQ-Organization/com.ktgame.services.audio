@@ -1,6 +1,6 @@
 {
   "name": "com.ktgame.services.audio",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "com.ktgame.services.audio",
   "description": "KTgame Audio Package",
   "unity": "2019.4",
