@@ -48,22 +48,30 @@ namespace com.ktgame.services.audio
 
         private void Update()
         {
-            _activeAudioPlayers.RemoveAll(x => x.State == AudioState.Stop);
-            _activeAudioPlayers.AddRange(_waitingAudioPlayers);
-            _waitingAudioPlayers.Clear();
+            _activeAudioPlayers.RemoveAll(x => x == null || x.State == AudioState.Stop);
 
-            foreach (var player in _activeAudioPlayers)
+            if (_waitingAudioPlayers.Count > 0)
             {
-                player.Update();
+                _activeAudioPlayers.AddRange(_waitingAudioPlayers);
+                _waitingAudioPlayers.Clear();
             }
+            
+            for (var i = 0; i < _activeAudioPlayers.Count; i++)
+            {
+                var player = _activeAudioPlayers[i];
+                player?.Update();
+            }
+
         }
 
         private void OnDestroy()
         {
             foreach (var audioPlayer in _activeAudioPlayers)
             {
-                audioPlayer.Stop();
+                audioPlayer?.Stop();
             }
+            _activeAudioPlayers.Clear();
+            _waitingAudioPlayers.Clear();
         }
 
         public AudioPlayer Play(AudioType type, AudioClip clip, float fadeInDuration = 0f)
@@ -490,9 +498,20 @@ namespace com.ktgame.services.audio
 
         private void StopInternal(AudioType audioType, AudioClip clip = null, string id = null, float duration = 0)
         {
-            foreach (var audioPlayer in FindAudioPlayers(audioType, clip, id))
+            var players = FindAudioPlayers(audioType, clip, id)?.ToList();
+            if (players == null || players.Count == 0)
             {
-                if (duration > 0)
+                return;
+            }
+
+            foreach (var audioPlayer in players)
+            {
+                if (audioPlayer == null)
+                {
+                    continue;
+                }
+
+                if (duration > 0f)
                 {
                     audioPlayer.Stop(duration);
                 }
@@ -511,23 +530,28 @@ namespace com.ktgame.services.audio
             }
 
             var pool = GetAudioSourcePool(audioType);
-            if (pool.Contains(source))
+            if (pool == null)
             {
                 return;
             }
-
-            GetAudioSourcePool(audioType).Enqueue(source);
+            
+            if (!pool.Contains(source))
+            {
+                pool.Enqueue(source);
+            }
         }
 
         private IEnumerable<AudioPlayer> FindAudioPlayers(AudioType audioType, AudioClip clip = null, string id = null)
         {
-            var audioPlayers = _activeAudioPlayers.Where(p => p.Type == audioType && p.State != AudioState.Wait);
+            var audioPlayers = _activeAudioPlayers
+                .Where(p => p != null && p.Type == audioType && p.State != AudioState.Wait);
+
             if (clip != null)
             {
                 audioPlayers = audioPlayers.Where(p => p.Clip == clip);
             }
 
-            if (id != null)
+            if (!string.IsNullOrEmpty(id))
             {
                 audioPlayers = audioPlayers.Where(p => p.ID == id);
             }
@@ -537,17 +561,18 @@ namespace com.ktgame.services.audio
 
         private AudioPlayer GetAudioPlayer(AudioType audioType, AudioClip clip)
         {
-            AudioPlayer audioPlayer;
             var pool = GetAudioSourcePool(audioType);
+            AudioSource source;
+            AudioPlayer audioPlayer;
 
-            if (pool.TryDequeue(out var source))
+            if (pool != null && pool.TryDequeue(out source) && source != null)
             {
                 audioPlayer = new AudioPlayer(source, audioType, clip);
             }
             else
             {
-                var obj = new GameObject($"{audioType.ToString()} Player");
-                obj.transform.SetParent(transform);
+                var obj = new GameObject($"{audioType} Player");
+                obj.transform.SetParent(transform, false);
                 audioPlayer = new AudioPlayer(obj.AddComponent<AudioSource>(), audioType, clip);
                 _injector?.Resolve(audioPlayer);
             }
