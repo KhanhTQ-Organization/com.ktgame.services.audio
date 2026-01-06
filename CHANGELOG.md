@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/KhanhTQ-Organization/com.ktgame.services.audio/compare/v1.0.4...v1.0.5) (2026-01-06)
+
+
+### Bug Fixes
+
+* update audio ([5bee337](https://github.com/KhanhTQ-Organization/com.ktgame.services.audio/commit/5bee337a461c763277939eed2a6e7b41a4cf312e))
+
 ## [1.0.4](https://github.com/KhanhTQ-Organization/com.ktgame.services.audio/compare/v1.0.3...v1.0.4) (2025-09-23)
 
 
