@@ -544,7 +544,12 @@ namespace com.ktgame.services.audio
         private IEnumerable<AudioPlayer> FindAudioPlayers(AudioType audioType, AudioClip clip = null, string id = null)
         {
             var audioPlayers = _activeAudioPlayers
-                .Where(p => p != null && p.Type == audioType && p.State != AudioState.Wait);
+                .Where(p =>
+                        p != null &&
+                        p.Type == audioType &&
+                        p.State != AudioState.Wait &&
+                        p.State != AudioState.Stop
+                );
 
             if (clip != null)
             {
