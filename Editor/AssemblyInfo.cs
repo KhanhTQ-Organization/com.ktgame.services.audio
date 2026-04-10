@@ -1,4 +1,4 @@
 using System.Reflection;
 
-[assembly: AssemblyTitle("com.ktgame.services.facebook.editor")]
-[assembly: AssemblyProduct("com.ktgame.services.facebook")]
+[assembly: AssemblyTitle("com.ktgame.services.audio.editor")]
+[assembly: AssemblyProduct("com.ktgame.services.audio")]

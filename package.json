@@ -1,20 +1,15 @@
 {
-  "name": "com.ktgame.services.facebook",
-  "version": "1.0.0",
-  "displayName": "com.ktgame.services.facebook",
-  "description": "KTgame services facebook",
+  "name": "com.ktgame.services.audio",
+  "version": "1.0.5",
+  "displayName": "com.ktgame.services.audio",
+  "description": "KTgame Audio Package",
   "unity": "2019.4",
   "author": {
     "name": "ktgame",
     "email": "khanhquang0912qh@gmail.com",
-    "url": "https://github.com/KhanhTQ-hub/com.ktgame.services.facebook"
+    "url": "https://github.com/KhanhTQ-hub/com.ktgame.services.audio"
   },
   "publishConfig": {
     "registry": "http://3.25.208.95:4873"
-  },
-  "dependencies": {
-    "com.ktgame.core": "1.0.11",
-    "com.ktgame.unitask": "1.0.3",
-    "com.ktgame.facebook.core": "1.0.0"
   }
 }

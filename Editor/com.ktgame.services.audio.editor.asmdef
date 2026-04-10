@@ -1,6 +1,6 @@
 {
-    "name": "com.ktgame.services.facebook.editor",
-    "rootNamespace": "com.ktgame.services.facebook.editor",
+    "name": "com.ktgame.services.audio.editor",
+    "rootNamespace": "com.ktgame.services.audio.editor",
     "references": [],
     "includePlatforms": [
         "Editor"
